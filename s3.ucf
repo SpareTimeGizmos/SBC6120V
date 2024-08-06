@@ -1,0 +1,162 @@
+#========================================================
+#    Pin assignment for Xilinx
+#    Spartan-3 Starter board
+#========================================================
+
+#========================================================
+# clock and reset
+#========================================================
+NET "clock_50mhz_in" LOC = "T9"  | IOSTANDARD = LVCMOS33;
+NET "reset_button"   LOC = "L14" | IOSTANDARD = LVCMOS33;
+
+#========================================================
+# buttons & switches
+#========================================================
+# 4 pushbuttons
+NET "btn<0>"   LOC = "M13" | IOSTANDARD = LVCMOS33;
+NET "btn<1>"   LOC = "M14" | IOSTANDARD = LVCMOS33;
+NET "btn<2>"   LOC = "L13" | IOSTANDARD = LVCMOS33;
+#NET "btn<3>"  LOC = "L14" | IOSTANDARD = LVCMOS33;  #btn<3> also used as reset
+
+# 8 slide switches
+NET "sw<0>"  LOC = "F12" | IOSTANDARD = LVCMOS33;
+NET "sw<1>"  LOC = "G12" | IOSTANDARD = LVCMOS33;
+NET "sw<2>"  LOC = "H14" | IOSTANDARD = LVCMOS33;
+NET "sw<3>"  LOC = "H13" | IOSTANDARD = LVCMOS33;
+NET "sw<4>"  LOC = "J14" | IOSTANDARD = LVCMOS33;
+NET "sw<5>"  LOC = "J13" | IOSTANDARD = LVCMOS33;
+NET "sw<6>"  LOC = "K14" | IOSTANDARD = LVCMOS33;
+NET "sw<7>"  LOC = "K13" | IOSTANDARD = LVCMOS33;
+
+#========================================================
+# RS232
+#========================================================
+NET "rxd"  LOC = "T13" | IOSTANDARD = LVCMOS33 | DRIVE=8 | SLEW=SLOW;
+NET "txd"  LOC = "R13" | IOSTANDARD = LVCMOS33 | DRIVE=8 | SLEW=SLOW;
+
+#========================================================
+# 4-digit time-multiplexed 7-segment LED display
+#========================================================
+# digit enable
+NET "an<0>"  LOC = "D14";
+NET "an<1>"  LOC = "G14";
+NET "an<2>"  LOC = "F14";
+NET "an<3>"  LOC = "E13";
+
+# 7-segment led segments
+NET "sseg<7>"  LOC = "P16"; # decimal point
+NET "sseg<6>"  LOC = "E14"; # segment a
+NET "sseg<5>"  LOC = "G13"; # segment b
+NET "sseg<4>"  LOC = "N15"; # segment c
+NET "sseg<3>"  LOC = "P15"; # segment d
+NET "sseg<2>"  LOC = "R16"; # segment e
+NET "sseg<1>"  LOC = "F13"; # segment f
+NET "sseg<0>"  LOC = "N16"; # segment g
+
+#========================================================
+# 8 discrete LEDs
+#========================================================
+NET "leds<0>"  LOC = "K12" | IOSTANDARD = LVCMOS33;
+NET "leds<1>"  LOC = "P14" | IOSTANDARD = LVCMOS33;
+NET "leds<2>"  LOC = "L12" | IOSTANDARD = LVCMOS33;
+NET "leds<3>"  LOC = "N14" | IOSTANDARD = LVCMOS33;
+NET "leds<4>"  LOC = "P13" | IOSTANDARD = LVCMOS33;
+NET "leds<5>"  LOC = "N12" | IOSTANDARD = LVCMOS33;
+NET "leds<6>"  LOC = "P12" | IOSTANDARD = LVCMOS33;
+NET "leds<7>"  LOC = "P11" | IOSTANDARD = LVCMOS33;
+
+#========================================================
+# VGA outputs
+#========================================================
+NET "vga_blue"     LOC = "R12" | IOSTANDARD = LVCMOS33 | DRIVE=8 | SLEW=FAST;
+NET "vga_green"    LOC = "T12" | IOSTANDARD = LVCMOS33 | DRIVE=8 | SLEW=FAST;
+NET "vga_red"      LOC = "R11" | IOSTANDARD = LVCMOS33 | DRIVE=8 | SLEW=FAST;
+NET "vga_vsync"    LOC = "T10" | IOSTANDARD = LVCMOS33 | DRIVE=8 | SLEW=FAST;
+NET "vga_hsync"    LOC = "R9"  | IOSTANDARD = LVCMOS33 | DRIVE=8 | SLEW=FAST;
+
+#========================================================
+# PS2 port
+#========================================================
+NET "ps2_clock" LOC="M16" | IOSTANDARD=LVCMOS33 | DRIVE=8 |SLEW=SLOW;
+NET "ps2_data"  LOC="M15" | IOSTANDARD=LVCMOS33 | DRIVE=8 |SLEW=SLOW;
+
+#========================================================
+# two SRAM chips
+#========================================================
+# shared 18-bit memory address
+NET "ram_addr<17>"  LOC="L3" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+NET "ram_addr<16>"  LOC="K5" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+NET "ram_addr<15>"  LOC="K3" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+NET "ram_addr<14>"  LOC="J3" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+NET "ram_addr<13>"  LOC="J4" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+NET "ram_addr<12>"  LOC="H4" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+NET "ram_addr<11>"  LOC="H3" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+NET "ram_addr<10>"  LOC="G5" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+NET "ram_addr<9>"   LOC="E4" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+NET "ram_addr<8>"   LOC="E3" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+NET "ram_addr<7>"   LOC="F4" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+NET "ram_addr<6>"   LOC="F3" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+NET "ram_addr<5>"   LOC="G4" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+NET "ram_addr<4>"   LOC="L4" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+NET "ram_addr<3>"   LOC="M3" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+NET "ram_addr<2>"   LOC="M4" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+NET "ram_addr<1>"   LOC="N3" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+NET "ram_addr<0>"   LOC="L5" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+
+# shared oe, we
+NET "ram_oe_n"    LOC="K4" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+NET "ram_we_n"    LOC="G3" | IOSTANDARD = LVCMOS33 | SLEW=FAST;
+
+# sram chip 1 data, ce, ub, lb
+NET "ram_a_data<15>" LOC="R1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_a_data<14>" LOC="P1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_a_data<13>" LOC="L2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_a_data<12>" LOC="J2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_a_data<11>" LOC="H1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_a_data<10>" LOC="F2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_a_data<9>"  LOC="P8" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_a_data<8>"  LOC="D3" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_a_data<7>"  LOC="B1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_a_data<6>"  LOC="C1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_a_data<5>"  LOC="C2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_a_data<4>"  LOC="R5" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_a_data<3>"  LOC="T5" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_a_data<2>"  LOC="R6" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_a_data<1>"  LOC="T8" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_a_data<0>"  LOC="N7" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_a_ce_n"     LOC="P7" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_a_ub_n"     LOC="T4" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_a_lb_n"     LOC="P6" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+
+# sram chip 2 data, ce, ub, lb
+NET "ram_b_data<15>" LOC="N1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_b_data<14>" LOC="M1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_b_data<13>" LOC="K2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_b_data<12>" LOC="C3" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_b_data<11>" LOC="F5" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_b_data<10>" LOC="G1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_b_data<9>"  LOC="E2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_b_data<8>"  LOC="D2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_b_data<7>"  LOC="D1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_b_data<6>"  LOC="E1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_b_data<5>"  LOC="G2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_b_data<4>"  LOC="J1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_b_data<3>"  LOC="K1" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_b_data<2>"  LOC="M2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_b_data<1>"  LOC="N2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_b_data<0>"  LOC="P2" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_b_ce_n"     LOC="N5" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_b_ub_n"     LOC="R4" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+NET "ram_b_lb_n"     LOC="P5" | IOSTANDARD=LVCMOS33 | SLEW=FAST;
+
+#========================================================
+# Timing constraint of S3 50-MHz onboard oscillator
+#========================================================
+NET "clock_50mhz_in" TNM_NET = "TS_clock_50mhz_in";
+TIMESPEC "TS_clock_50mhz_in" = PERIOD "TS_clock_50mhz_in" 20 ns HIGH 50 %;
+
+NET "cpuclk" TNM_NET = "TS_cpuclk";
+TIMESPEC "TS_cpuclk" = PERIOD "TS_cpuclk" 40 ns HIGH 50 %;
+
+NET "vgaclk" TNM_NET = "TS_vgaclk";
+TIMESPEC "TS_vgaclk" = PERIOD "TS_vgaclk" 35 ns HIGH 50 %;

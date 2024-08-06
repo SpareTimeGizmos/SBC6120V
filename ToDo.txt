@@ -1,0 +1,12 @@
+* HALT switch is messed up
+* Need synchronizers for console txd and rxd
+* Make console break work
+* Add extra serial ports
+* Add parallel/GPIO port
+* clean up BTS6120 code (see readme in that directory)
+* fix up reset module to have a more meaningful parameter, e.g. DELAY = 100
+* use the clog2 (and maybe ck_divider?) module
+* Ditto for bell!
+* change bell to CPU clock domain
+* need synchronizers for cpu and vt52 reset?
+* Document UME2 UI

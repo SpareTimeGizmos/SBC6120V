@@ -1,0 +1,79 @@
+# Constraints for the SBC6120 Blue/XuLA implementation - RLA [16-Mar-2011]
+
+# FPGA clock (from the PIC) and our own 50MHz oscillator ...
+net fpga_clk       loc = p43 | IOSTANDARD = LVTTL;
+net clock_50mhz_in loc = p44 | IOSTANDARD = LVTTL;
+NET "fpga_clk" TNM_NET = "fpga_clk";
+TIMESPEC "TS_fpga_clk" = PERIOD "fpga_clk" 83 ns HIGH 50%;
+NET "clock_50mhz_in" TNM_NET = "clock_50mhz_in";
+TIMESPEC "TS_clock_50mhz_in" = PERIOD "clock_50mhz_in" 20 ns HIGH 50%;
+
+# XuLA onboard SDRAM connections ...
+net sdram_clk    loc = p40 | IOSTANDARD = LVTTL | SLEW=FAST | DRIVE=8;
+net sdram_clk_fb loc = p41 | IOSTANDARD = LVTTL;
+net ras_n        loc = p59 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net cas_n        loc = p60 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net we_n         loc = p64 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net bs           loc = p53 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net a<0>         loc = p49 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net a<1>         loc = p48 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net a<2>         loc = p46 | IOSTANDARD = LVTTL | SLEW=FAST | DRIVE=6;
+net a<3>         loc = p31 | IOSTANDARD = LVTTL | SLEW=FAST | DRIVE=6;
+net a<4>         loc = p30 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net a<5>         loc = p29 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net a<6>         loc = p28 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net a<7>         loc = p27 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net a<8>         loc = p23 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net a<9>         loc = p24 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net a<10>        loc = p51 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net a<11>        loc = p25 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net d<0>         loc = p90 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net d<1>         loc = p77 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net d<2>         loc = p78 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net d<3>         loc = p85 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net d<4>         loc = p86 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net d<5>         loc = p71 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net d<6>         loc = p70 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net d<7>         loc = p65 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net d<8>         loc = p16 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net d<9>         loc = p15 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net d<10>        loc = p10 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net d<11>        loc = p9  | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net d<12>        loc = p6  | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net d<13>        loc = p5  | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net d<14>        loc = p99 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+net d<15>        loc = p98 | IOSTANDARD = LVTTL | SLEW=SLOW | DRIVE=6;
+
+# SBC6120 Blue/XuLA net/channel/FPGA mappings ...
+net vga_red      loc = p19 | IOSTANDARD=LVCMOS33 | SLEW=FAST | DRIVE=8;
+net vga_green	 loc = p13 | IOSTANDARD=LVCMOS33 | SLEW=FAST | DRIVE=8;
+net vga_blue	 loc = p3  | IOSTANDARD=LVCMOS33 | SLEW=FAST | DRIVE=8;
+net vga_hsync	 loc = p4  | IOSTANDARD=LVCMOS33 | SLEW=FAST | DRIVE=8;
+net vga_vsync	 loc = p12 | IOSTANDARD=LVCMOS33 | SLEW=FAST | DRIVE=8;
+net ps2_data_n	 loc = p32 | IOSTANDARD=LVCMOS33 | SLEW=SLOW | DRIVE=8;
+net ps2_clock_n  loc = p20 | IOSTANDARD=LVCMOS33 | SLEW=SLOW | DRIVE=8;
+net slu1_txd	 loc = p72 | IOSTANDARD=LVCMOS33 | SLEW=SLOW | DRIVE=8;
+net slu1_rxd	 loc = p39 | IOSTANDARD=LVCMOS33;
+net slu2_txd	 loc = p62 | IOSTANDARD=LVCMOS33 | SLEW=SLOW | DRIVE=8;
+net slu2_rxd	 loc = p68 | IOSTANDARD=LVCMOS33;
+net sd_mosi	 loc = p83 | IOSTANDARD=LVCMOS33 | SLEW=FAST | DRIVE=8;
+net sd_miso	 loc = p82 | IOSTANDARD=LVCMOS33;
+net sd_cs_n	 loc = p36 | IOSTANDARD=LVCMOS33 | SLEW=FAST | DRIVE=8;
+net sd_sclk	 loc = p73 | IOSTANDARD=LVCMOS33 | SLEW=FAST | DRIVE=8;
+net panel_mosi	 loc = p35 | IOSTANDARD=LVCMOS33 | SLEW=FAST | DRIVE=8;
+net panel_miso	 loc = p7  | IOSTANDARD=LVCMOS33;
+net panel_sclk	 loc = p34 | IOSTANDARD=LVCMOS33 | SLEW=FAST | DRIVE=8;
+net panel_load_n loc = p33 | IOSTANDARD=LVCMOS33 | SLEW=FAST | DRIVE=8;
+net flash_cs_n 	 loc = p50 | IOSTANDARD=LVCMOS33 | SLEW=FAST | DRIVE=8;
+net rtc_cs 	 loc = p61 | IOSTANDARD=LVCMOS33 | SLEW=FAST | DRIVE=8;
+net rtc_sclk	 loc = p56 | IOSTANDARD=LVCMOS33 | SLEW=FAST | DRIVE=8;
+net rtc_sio	 loc = p57 | IOSTANDARD=LVCMOS33 | SLEW=FAST | DRIVE=8;
+net speaker	 loc = p37 | IOSTANDARD=LVCMOS33 | SLEW=SLOW | DRIVE=8;
+net speaker_n	 loc = p84 | IOSTANDARD=LVCMOS33 | SLEW=SLOW | DRIVE=8;
+net spare_io_1	 loc = p88 | IOSTANDARD=LVCMOS33;
+net spare_io_2	 loc = p89 | IOSTANDARD=LVCMOS33;
+net spare_io_3	 loc = p93 | IOSTANDARD=LVCMOS33;
+net spare_io_4	 loc = p94 | IOSTANDARD=LVCMOS33;
+net spare_io_5	 loc = p52 | IOSTANDARD=LVCMOS33;
+net spare_in_1	 loc = p21 | IOSTANDARD=LVCMOS33;
+net spare_in_2	 loc = p97 | IOSTANDARD=LVCMOS33;

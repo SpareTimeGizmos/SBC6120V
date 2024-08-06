@@ -1,0 +1,20 @@
+// The command that made this (more or less) was
+// data2mem -mf p EPROM PPC405 0 a eprom b 0x0000 12 s RAMB16 0x4800 4 eprom_f -o p eprom.bmm
+// then go and hand fix up the bank names...
+
+ADDRESS_MAP EPROM PPC405 0
+    ADDRESS_SPACE eprom RAMB16 [0x00000000:0x00002FFF]
+        BUS_BLOCK
+            sbc6120/memory/eprom/eprom_f0l [11:8];
+            sbc6120/memory/eprom/eprom_f0m [7:4];
+            sbc6120/memory/eprom/eprom_f0h [3:0];
+        END_BUS_BLOCK;
+
+        BUS_BLOCK
+            sbc6120/memory/eprom/eprom_f1l [11:8];
+            sbc6120/memory/eprom/eprom_f1m [7:4];
+            sbc6120/memory/eprom/eprom_f1h [3:0];
+        END_BUS_BLOCK;
+    END_ADDRESS_SPACE;
+END_ADDRESS_MAP;
+
